@@ -1,0 +1,16 @@
+<CRNenv c_cmd="http://localhost:9090/analytics/main.jsp">
+<cookies>
+<param name="CRN"/>
+<param name="cam_passport"/>
+</cookies>
+<cc_state>
+<param name="home"/>
+</cc_state>
+<user_pref>
+<param name="productLocale"/>
+</user_pref>
+<cm>
+<param name="userName"/>
+<param name="surname"/>
+</cm>
+</CRNenv>

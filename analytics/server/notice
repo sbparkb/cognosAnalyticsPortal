@@ -1,0 +1,1 @@
+#Cognos 웹 세션에 로그인하고 포털 페이지로 이동하기 위해 redirect.xml 을 [Cognos 설치경로]/templates/ps/portal/custom에 넣는다.
