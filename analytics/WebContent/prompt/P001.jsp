@@ -13,7 +13,6 @@
 	String gateway = "http://localhost:9300/bi/v1/disp";
 
 	String storeId = request.getParameter("sId");
-System.out.println("jsp-storeId:" + storeId);	
 	CognosConnect conn = new CognosConnect();
 
 	ContentManagerService_PortType cmService = (ContentManagerService_PortType)session.getAttribute("cmService");
@@ -22,16 +21,12 @@ System.out.println("jsp-storeId:" + storeId);
 	
 	CognosObject object = ctrl.getCognosObjectInfo(gateway, storeId, cmService, "false");
 	
-	if(object == null){
-		System.out.println("null");
-	}else{
-		System.out.println("not null");
-	}
 	String reportUrl = object.getExecuteUrl();
+System.out.println("reportUrl:" + reportUrl);	
 %>
 <body>
 <h3>광고비 집행 내역</h3>
-<form id="prompt" action="promptRun.jsp">
+<form id="prompt" action="<%=reportUrl%>" method="post">
 	<select name="p_LINE">
 		<option>==선택==</option>
 		<option value="991">캠핑 장비</option>
@@ -40,6 +35,7 @@ System.out.println("jsp-storeId:" + storeId);
 		<option value="994">야외 보호 장비</option>
 		<option value="995">골프 장비</option>
 	</select>
+	<input type="submit" value="실행">
 </form>
 </body>
 </html>
