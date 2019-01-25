@@ -10,7 +10,7 @@
 <title>Welcome to Report!</title>
 </head>
 <%
-	String gateway = "http://localhost:9300/bi/v1/disp";
+	String gateway = "http://june-PC:9300/bi/v1/disp";
 
 	String storeId = request.getParameter("sId");
 	CognosConnect conn = new CognosConnect();

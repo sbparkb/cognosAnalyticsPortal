@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Welcome Main!</title>
 <style>
 body{
@@ -62,10 +62,15 @@ function promptRun(){
 	var sId = 'iDAAE6FAF2FE24C86A9CF596E44BEC6D1';
 	$('#reportRun').attr('src','prompt/P001.jsp?sId='+sId);
 }
+
+function logout(){
+	$('#logout').attr('src','http://june-pc:9300/bi/v1/disp/rds/auth/logoff');
+	location.href = 'index.jsp';
+}
 </script>
 </head>
 <%	
-	String CMURL = "http://localhost:9300/p2pd/servlet/dispatch";
+	String CMURL = "http://june-PC:9300/p2pd/servlet/dispatch";
 	String camPassport = request.getParameter("cam_passport");
 	
 	CognosConnect conn = new CognosConnect();
@@ -84,7 +89,7 @@ function promptRun(){
 	pageContext.setAttribute("menuList", menuList);
 %>
 <body>
-<h3><%=obj.getDefaultName()%></h3>
+<h3><%=obj.getDefaultName()%></h3><input type="button" onclick="logout()" value="로그아웃">
 <hr>
 <div style="width: 20%; height: 800px;float: left;">
 <ul id="leftMenu">
@@ -106,5 +111,6 @@ function promptRun(){
 <div style="width: 80%; height: 800px;float: left">
 	<iframe id="reportRun" name="reportRun" src="" style="width: 100%; height: 100%;"></iframe>
 </div>
+<iframe id="logout" src="" style="display: none;"></iframe>
 </body>
 </html>

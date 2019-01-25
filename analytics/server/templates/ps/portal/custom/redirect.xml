@@ -1,4 +1,4 @@
-<CRNenv c_cmd="http://localhost:9090/analytics/main.jsp">
+<CRNenv c_cmd="http://june-PC:9090/analytics/main.jsp">
 <cookies>
 <param name="CRN"/>
 <param name="cam_passport"/>

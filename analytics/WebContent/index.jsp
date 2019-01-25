@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Welcome Login</title>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
@@ -22,7 +22,7 @@ function logon(){
 </head>
 <body onload="setFocus()">
 <div>
-<form id="login" action="http://localhost:9300/bi/v1/disp?b_action=xts.run&m=portal/bridge.xts&c_env=/portal/custom/redirect.xml&c_mode=post" method="post">
+<form id="login" action="http://june-PC:9300/bi/v1/disp?b_action=xts.run&m=portal/bridge.xts&c_env=/portal/custom/redirect.xml&c_mode=post" method="post">
 <input type="hidden" name="h_CAM_action" value="logonAs">
 <input type="hidden" name="CAMNamespace" value="DBAuth">
 아이디<input type="text" id="CAMUsername" name="CAMUsername"><br>
@@ -30,6 +30,6 @@ function logon(){
 <input type="button" onclick="logon()" value="로그인">
 </form>
 </div>
-<iframe src="http://localhost:9300/bi/v1/disp?b_action=xts.run&m=portal/logoff.xts" style="display: none;"></iframe>
+<iframe src="http://june-pc:9300/bi/v1/disp/rds/auth/logoff" style="display: none;"></iframe>
 </body>
 </html>
