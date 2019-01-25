@@ -59,14 +59,14 @@ public class CognosControl {
 			
 			myCMObject = (cmService.query(cmSearchPath,properties,new Sort[] {},new QueryOptions()))[0];
 
-			String appendString = "/*";
+			String appendString = "/*[permission('read')]";
 			if (searchPath.lastIndexOf("/") == (searchPath.length() - 1))
 			{
-				appendString = "*";
+				appendString = "*[permission('read')]";
 			}
 			if (searchPath.lastIndexOf("*") == (searchPath.length() - 1))
 			{
-				appendString = "";
+				appendString = "[permission('read')]";
 			}
 			Sort nodeSortType = new Sort();
 			Sort nodeSortName = new Sort();
@@ -172,6 +172,7 @@ public class CognosControl {
 		try {						
 			PropEnum[] prop = {PropEnum.searchPath, PropEnum.defaultName, PropEnum.storeID, PropEnum.objectClass, PropEnum.defaultOutputFormat, PropEnum.target, PropEnum.uri, PropEnum.description};
 			BaseClass[] bc = cmService.query(new SearchPathMultipleObject("storeID(\"" + storeId + "\")"), prop, new Sort[] {}, new QueryOptions());
+			
 			if(bc != null && bc.length > 0) {
 				obj = new CognosObject();
 				obj.setSearchPath(bc[0].getSearchPath().getValue());
