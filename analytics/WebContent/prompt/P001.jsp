@@ -22,7 +22,7 @@
 	CognosObject object = ctrl.getCognosObjectInfo(gateway, storeId, cmService, "false");
 	
 	String reportUrl = object.getExecuteUrl();
-System.out.println("reportUrl:" + reportUrl);	
+	
 %>
 <body>
 <h3>광고비 집행 내역</h3>
