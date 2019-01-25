@@ -19,6 +19,7 @@ li {
 }
 </style>
 <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/cognoslaunch.js"></script>
 <script>
 $(document).ready(function() {
 	$('#leftMenu').on('click', 'li', function(event) {
@@ -67,6 +68,10 @@ function logout(){
 	$('#logout').attr('src','http://june-pc:9300/bi/v1/disp/rds/auth/logoff');
 	location.href = 'index.jsp';
 }
+
+function openRs(){
+	$('#reportRun').attr('src','http://june-pc:9300/bi/?perspective=authoring&id=1548405135009&isTemplate=false&UIProfile=Titan');
+}
 </script>
 </head>
 <%	
@@ -89,7 +94,7 @@ function logout(){
 	pageContext.setAttribute("menuList", menuList);
 %>
 <body>
-<h3><%=obj.getDefaultName()%></h3><input type="button" onclick="logout()" value="로그아웃">
+<h3><%=obj.getDefaultName()%></h3><input type="button" onclick="logout()" value="로그아웃">&nbsp;&nbsp;<input type="button" onclick="openRs()" value="빈 보고서">
 <hr>
 <div style="width: 20%; height: 800px;float: left;">
 <ul id="leftMenu">
@@ -108,7 +113,7 @@ function logout(){
 	<li onclick="promptRun();">매개변수전달 보고서</li>
 </ul>
 </div>
-<div style="width: 80%; height: 800px;float: left">
+<div style="width: 80%; height: 800px;float: left">	
 	<iframe id="reportRun" name="reportRun" src="" style="width: 100%; height: 100%;"></iframe>
 </div>
 <iframe id="logout" src="" style="display: none;"></iframe>
