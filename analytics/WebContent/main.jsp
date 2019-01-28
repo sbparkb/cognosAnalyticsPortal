@@ -19,7 +19,6 @@ li {
 }
 </style>
 <script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/cognoslaunch.js"></script>
 <script>
 $(document).ready(function() {
 	$('#leftMenu').on('click', 'li', function(event) {
@@ -65,17 +64,17 @@ function promptRun(){
 }
 
 function logout(){
-	$('#logout').attr('src','http://june-pc:9300/bi/v1/disp/rds/auth/logoff');
+	$('#logout').attr('src','http://june-pc/bi/v1/disp/rds/auth/logoff');
 	location.href = 'index.jsp';
 }
 
 function openRs(){
-	$('#reportRun').attr('src','http://june-pc:9300/bi/?perspective=authoring&id=1548405135009&isTemplate=false&UIProfile=Titan');
+	$('#reportRun').attr('src','http://june-pc/bi/?perspective=authoring&id=1548405135009&isTemplate=false&UIProfile=Titan');
 }
 </script>
 </head>
 <%	
-	String CMURL = "http://june-PC:9300/p2pd/servlet/dispatch";
+	String CMURL = "http://june-pc:9300/p2pd/servlet/dispatch";
 	String camPassport = request.getParameter("cam_passport");
 	
 	CognosConnect conn = new CognosConnect();
