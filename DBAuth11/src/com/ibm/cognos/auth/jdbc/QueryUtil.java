@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 
 import com.cognos.CAM_AAA.authentication.IAccount;
@@ -41,7 +42,7 @@ public class QueryUtil {
 		sqlCondition.append(" " + columnName + " LIKE '" + likePattern + "' ESCAPE '!'");
 	}
 
-	public static Account createAccount(final ConnectionManager connectionManager, final String userName, final String password) throws UnrecoverableException {
+	public static Account createAccount(final ConnectionManager connectionManager, final String userName, final String password) throws UnrecoverableException, UnsupportedEncodingException {
 		DBAuthLogger.debug("QueryUtil createAccount start.");
 		
 		String encPassword = EncryptUtil.getEncryptedString(connectionManager.encryptType, password);
@@ -68,7 +69,7 @@ public class QueryUtil {
 		}		
 	}
 	
-	public static Account getAccountProperties(final ConnectionManager connectionManager, final String userSearchPath) throws UnrecoverableException {
+	public static Account getAccountProperties(final ConnectionManager connectionManager, final String userSearchPath) throws UnrecoverableException, UnsupportedEncodingException {
 		DBAuthLogger.debug("QueryUtil getAccountProperties start.");
 		final Account account = new Account(userSearchPath);
 		final String userIDStr = account.getObjectID();
@@ -82,6 +83,7 @@ public class QueryUtil {
 		
 		String userId = (String)row[0];
 		String userNm = (String)row[1];
+		userNm = new String(userNm.getBytes("iso-8859-1"), "euc-kr");
 		String userEmail = (String)row[2];
 		String userLocale = (String)row[3];
 		
@@ -401,7 +403,7 @@ public class QueryUtil {
 
 	public static void searchQuery(final ConnectionManager connectionManager, final String theSqlCondition,
 			final IQueryOption theQueryOption, final String[] theProperties, final ISortProperty[] theSortProperties,
-			final QueryResult theResult, final INamespace theNamespace) throws SQLException, UnrecoverableException {
+			final QueryResult theResult, final INamespace theNamespace) throws SQLException, UnrecoverableException, UnsupportedEncodingException {
 		DBAuthLogger.debug("QueryUtil searchQuery start.");
 		
 		// searchQuery

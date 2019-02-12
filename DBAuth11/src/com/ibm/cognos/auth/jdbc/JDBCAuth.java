@@ -12,6 +12,7 @@ package com.ibm.cognos.auth.jdbc;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Locale;
 
@@ -235,6 +236,8 @@ public class JDBCAuth extends Namespace implements INamespaceAuthenticationProvi
 			// Something went wrong, probably because the user's credentials
 			// are invalid.
 			generateAndThrowExceptionForLogonPrompt(errorDetails);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
 		
 		DBAuthLogger.debug("JDBCAuth logon end.");
@@ -306,6 +309,8 @@ public class JDBCAuth extends Namespace implements INamespaceAuthenticationProvi
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		} catch (final UnrecoverableException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 

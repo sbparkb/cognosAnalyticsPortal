@@ -9,6 +9,7 @@
  */
 package com.ibm.cognos.auth.jdbc;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
 import com.cognos.CAM_AAA.authentication.IBiBusHeader;
@@ -96,7 +97,7 @@ public class JDBCVisa extends Visa {
 		return tc;
 	}
 
-	public void init(final JDBCAuth theNamespace, final ConnectionManager theConnectionManager, final String theUsername, final String thePassword) throws UnrecoverableException {
+	public void init(final JDBCAuth theNamespace, final ConnectionManager theConnectionManager, final String theUsername, final String thePassword) throws UnrecoverableException, UnsupportedEncodingException {
 		try {
 			connectionManager = theConnectionManager;
 			// Create account object for the user.
