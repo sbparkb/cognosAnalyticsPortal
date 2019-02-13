@@ -256,13 +256,17 @@ public class Logon implements ActionListener
 			SOAPHeaderElement soapHeader = ((Stub)connection.getCMService()).getResponseHeader("http://developer.cognos.com/schemas/bibus/3/", "biBusHeader");
 			((Stub)connection.getCMService()).setHeader(soapHeader);
 						
-			BiBusHeader cmBiBusHeader = (BiBusHeader) soapHeader.getValueAsType(new QName("http://developer.cognos.com/schemas/bibus/3/", "biBusHeader"));
-			
-			for (int j = 0; j < cmBiBusHeader.getHdrSession().getSetCookieVars().length; j++) {
-				String cookieName = cmBiBusHeader.getHdrSession().getSetCookieVars()[j].getName();
-				String cookieValue = cmBiBusHeader.getHdrSession().getSetCookieVars()[j].getValue();
-				System.out.println("cookieName:" + cookieName + " | cookieValue:" + cookieValue);
-			}
+			/*
+			 * BiBusHeader cmBiBusHeader = (BiBusHeader) soapHeader.getValueAsType(new
+			 * QName("http://developer.cognos.com/schemas/bibus/3/", "biBusHeader"));
+			 * 
+			 * for (int j = 0; j < cmBiBusHeader.getHdrSession().getSetCookieVars().length;
+			 * j++) { String cookieName =
+			 * cmBiBusHeader.getHdrSession().getSetCookieVars()[j].getName(); String
+			 * cookieValue = cmBiBusHeader.getHdrSession().getSetCookieVars()[j].getValue();
+			 * System.out.println("cookieName:" + cookieName + " | cookieValue:" +
+			 * cookieValue); }
+			 */
 			
 			password = "";						
 		}
